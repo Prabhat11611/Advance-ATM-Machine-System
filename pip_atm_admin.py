@@ -3,7 +3,7 @@ import mysql.connector as MyConn
 
 
 def insert_data():
-    mydb=MyConn.connect(host='localhost',user='root',password='pass123', database="Admin")
+    mydb=MyConn.connect(host='localhost',user='root',password='pa123', database="Admin")
     db_cursor=mydb.cursor()
     a=input("Enter Customer Name: ")
     a1=input("Enter Customer Aadhar Card Number: ")
@@ -20,7 +20,7 @@ def insert_data():
 
 # To check whether the record is resent in the database or not.
 def check_record():
-    mydb=MyConn.connect(host='localhost',user='root',password='pass123', database="Admin")
+    mydb=MyConn.connect(host='localhost',user='root',password='pa123', database="Admin")
     db_cursor = mydb.cursor()
     user_input = input("Enter Customer ATM Number: ")
     user_input1 = input("Enter Customer PIN: ")
@@ -44,7 +44,7 @@ def check_record():
 
 
 def update_data():
-    mydb=MyConn.connect(host='localhost',user='root',password='pass123', database="Admin")
+    mydb=MyConn.connect(host='localhost',user='root',password='pa123', database="Admin")
     db_cursor=mydb.cursor()
     print("\n||||||||||||||||||||||||||||||||||||||||||")
     print("|| What do you want to Update....       ||")
@@ -88,7 +88,7 @@ def update_data():
 
 # To delete any record from the table of the Database.
 def delete_data():
-    mydb=MyConn.connect(host='localhost',user='root',password='pass123', database="Admin")
+    mydb=MyConn.connect(host='localhost',user='root',password='pa123', database="Admin")
     db_cursor=mydb.cursor()
     delete_record="delete from Admin.Customer where ID=%s"
     a=input("Enter Customer ID Number: ")
