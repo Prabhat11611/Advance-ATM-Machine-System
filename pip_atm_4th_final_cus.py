@@ -1,7 +1,7 @@
 import mysql.connector as MyConn
 
 def validate_user(ATMNumber, PIN):
-    mydb = MyConn.connect(host='localhost', user='root', password='pass123', database='admin')
+    mydb = MyConn.connect(host='localhost', user='root', password='pa123', database='admin')
     db_cursor = mydb.cursor()
     db_cursor.execute("SELECT * FROM customer WHERE ATMNumber = '{}' AND PIN = '{}'".format(ATMNumber.upper(), PIN.upper()))
     result = db_cursor.fetchone()
@@ -12,7 +12,7 @@ def validate_user(ATMNumber, PIN):
 
 
 def check_balance(ATMNumber):
-    mydb = MyConn.connect(host='localhost', user='root', password='pass123', database='admin')
+    mydb = MyConn.connect(host='localhost', user='root', password='pas123', database='admin')
     db_cursor = mydb.cursor()
     db_cursor.execute("SELECT Balance FROM customer WHERE ATMNumber = '{}'".format(ATMNumber.upper()))
     result = db_cursor.fetchone()
@@ -24,14 +24,14 @@ def check_balance(ATMNumber):
 
 
 def withdraw_money(ATMNumber, Balance):
-    mydb = MyConn.connect(host='localhost', user='root', password='pass123', database='admin')
+    mydb = MyConn.connect(host='localhost', user='root', password='pas123', database='admin')
     db_cursor = mydb.cursor()
     db_cursor.execute("UPDATE customer SET Balance = Balance - {} WHERE ATMNumber = '{}'".format(Balance, ATMNumber.upper()))
     mydb.commit()
 
 
 def deposit_money(ATMNumber, Balance):
-    mydb = MyConn.connect(host='localhost', user='root', password='pass123', database='admin')
+    mydb = MyConn.connect(host='localhost', user='root', password='pas123', database='admin')
     db_cursor = mydb.cursor()
     db_cursor.execute("UPDATE customer SET Balance = Balance + {} WHERE ATMNumber = '{}'".format(Balance, ATMNumber.upper()))
     mydb.commit()
@@ -39,7 +39,7 @@ def deposit_money(ATMNumber, Balance):
 
 #Function to change the PIN
 def change_atm_pin(ATMNumber, old_atm_pin, new_atm_pin):
-  connection = MyConn.connect(host="localhost", user="root", password="pass123", database="admin")
+  connection = MyConn.connect(host="localhost", user="root", password="pas123", database="admin")
   cursor = connection.cursor()
   query = "UPDATE admin.customer SET PIN = %s WHERE ATMNumber = %s AND PIN = %s"
   cursor.execute(query, (new_atm_pin, ATMNumber, old_atm_pin))
